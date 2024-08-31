@@ -6,6 +6,10 @@ pipeline {
         EMAIL = 'johndoe@gmail.com'
     }
 
+    options {
+      disableConcurrentBuilds()
+    }
+
     stages {
         stage('Hello') {
             environment {
