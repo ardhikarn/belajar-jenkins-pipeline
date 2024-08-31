@@ -7,22 +7,30 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo "Hello Pipeline!!!"
+                echo "Hello Pipeline!!! 1"
+                echo "Hello Pipeline!!! 2"
+                echo "Hello Pipeline!!! 3"
             }
         }
         stage('Build') {
             steps {
-                echo "Building the project..."
+                echo "Building the project... 1"
+                echo "Building the project... 2"
+                echo "Building the project... 3"
             }
         }
         stage('Test') {
             steps {
-                echo "Testing the project..."
+                echo "Testing the project... 1"
+                echo "Testing the project... 2"
+                echo "Testing the project... 3"
             }
         }
         stage('Deploy') {
             steps {
-                echo "Deploying the project..."
+                echo "Deploying the project... 1"
+                echo "Deploying the project... 2"
+                echo "Deploying the project... 3"
             }
         }
     }
