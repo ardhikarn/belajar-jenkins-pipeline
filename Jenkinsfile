@@ -14,18 +14,16 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo "Building the project... 1"
-                sleep(10)
-                echo "Building the project... 2"
-                echo "Building the project... 3"
+                echo "Starting the build..."
+                sh("./mvnw clean compile test-compile")
+                echo "Finished the build..."
             }
         }
         stage('Test') {
             steps {
-                echo "Testing the project... 1"
-                sleep(10)
-                echo "Testing the project... 2"
-                echo "Testing the project... 3"
+                echo "Starting the test..."
+                sh("./mvnw test")
+                echo "Finished the test..."
             }
         }
         stage('Deploy') {
