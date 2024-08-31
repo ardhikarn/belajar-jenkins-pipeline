@@ -14,6 +14,7 @@ pipeline {
             steps {
                 echo("USR: ${APP_USR}")
                 echo("PSW: ${APP_PSW}")
+                sh("echo 'App Password: $APP_PSW' > rahasia.txt")
                 echo "Hello Pipeline!!! 1"
                 sh("chmod +x ./mvnw")
                 echo "Hello Pipeline!!! 2"
