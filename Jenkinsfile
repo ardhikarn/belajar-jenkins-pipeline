@@ -1,9 +1,11 @@
 pipeline {
-    agent {
-      node {
-        label 'linux && java17'
-      }
+    agent any
+
+    environment {
+        AUTHOR = 'John Doe'
+        EMAIL = 'johndoe@gmail.com'
     }
+
     stages {
         stage('Hello') {
             steps {
@@ -26,6 +28,8 @@ pipeline {
                     writeJSON(file: 'data.json', json: data)
                 }
                 echo "Hello Pipeline!!! 3"
+                echo("AUTHOR: ${env.AUTHOR}")
+                echo("EMAIL: ${env.EMAIL}")
             }
         }
         stage('Build') {
