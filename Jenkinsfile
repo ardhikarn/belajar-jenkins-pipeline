@@ -8,6 +8,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo "Hello Pipeline!!! 1"
+                sh("chmod +x ./mvnw")
                 echo "Hello Pipeline!!! 2"
                 echo "Hello Pipeline!!! 3"
             }
