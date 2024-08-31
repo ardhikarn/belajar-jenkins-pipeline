@@ -8,7 +8,12 @@ pipeline {
 
     stages {
         stage('Hello') {
+            environment {
+              APP = credentials('johndoe_rahasia')
+            }
             steps {
+                echo("USR: ${APP_USR}")
+                echo("PWD: ${APP_PWD}")
                 echo "Hello Pipeline!!! 1"
                 sh("chmod +x ./mvnw")
                 echo "Hello Pipeline!!! 2"
