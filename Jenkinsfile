@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Hello') {
             environment {
-              APP = credentials('johndoe_rahasia')
+              APP = withCredentials('johndoe_rahasia')
             }
             steps {
                 echo("USR: ${APP_USR}")
