@@ -7,7 +7,10 @@ pipeline {
     }
 
     options {
-      disableConcurrentBuilds()
+      disableConcurrentBuilds(
+        abortPrevious: true
+      )
+      timeout(time: 1, unit: 'HOURS')
     }
 
     stages {
@@ -40,11 +43,13 @@ pipeline {
                 echo "Hello Pipeline!!! 3"
                 echo("AUTHOR: ${env.AUTHOR}")
                 echo("EMAIL: ${env.EMAIL}")
+                 sleep(10)
             }
         }
         stage('Build') {
             steps {
                 echo "Starting the build..."
+                 sleep(10)
                 sh("./mvnw clean compile test-compile")
                 echo "Finished the build..."
             }
@@ -52,6 +57,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Starting the test..."
+                 sleep(10)
                 sh("./mvnw test")
                 echo "Finished the test..."
             }
