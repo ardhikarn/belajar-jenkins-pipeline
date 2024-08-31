@@ -13,6 +13,14 @@ pipeline {
       timeout(time: 1, unit: 'HOURS')
     }
 
+    parameters{
+        string(name: 'NAME', defaultValue: 'John Doe', description: 'Please enter your name')
+        booleanParam(name: 'IS_DEV', defaultValue: true, description: 'Are you a developer?')
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Select one of the options')
+        password(name: 'PASSWORD', defaultValue: '123456', description: 'Please enter your password')
+        text(name: 'TEXT', defaultValue: 'Hello World', description: 'Please enter some text')
+    }
+
     stages {
         stage('Hello') {
             environment {
