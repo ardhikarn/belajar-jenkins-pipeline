@@ -10,6 +10,14 @@ pipeline {
                 echo "Hello Pipeline!!! 1"
                 sh("chmod +x ./mvnw")
                 echo "Hello Pipeline!!! 2"
+                script {
+                    def mvnVersion = sh(script: './mvnw -v', returnStdout: true).trim()
+                    echo "Maven version: ${mvnVersion}"
+
+                    for (int i = 0; i < 5; i++) {
+                        echo "Hello Pipeline!!! ${i}"
+                    }
+                }
                 echo "Hello Pipeline!!! 3"
             }
         }
