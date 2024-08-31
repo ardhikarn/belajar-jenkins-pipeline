@@ -17,6 +17,13 @@ pipeline {
                     for (int i = 0; i < 5; i++) {
                         echo "Hello Pipeline!!! ${i}"
                     }
+
+                    def data = [
+                       "firstname": "John",
+                        "lastname": "Doe",
+                    ]
+
+                    writeJSON(file: 'data.json', json: data)
                 }
                 echo "Hello Pipeline!!! 3"
             }
